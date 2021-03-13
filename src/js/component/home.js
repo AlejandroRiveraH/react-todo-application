@@ -14,18 +14,16 @@ export function Home() {
 
 	const updatedtoDo = toDo.map(listItems => {
 		return (
-			<ul>
-				<li
-					id={listItems}
-					value={listItems}
-					className="li"
-					key={listItems.toString()}>
-					<span>
-						<i class="fa fa-trash"></i>
-					</span>{" "}
-					{listItems}
-				</li>
-			</ul>
+			<li
+				id={listItems}
+				value={listItems}
+				className="li"
+				key={listItems.toString()}>
+				<span>
+					<i className="fa fa-trash"></i>
+				</span>{" "}
+				{listItems}
+			</li>
 		);
 	});
 
@@ -37,21 +35,10 @@ export function Home() {
 		}
 	}
 
-	function eliminar(e) {}
-
-	/*	return (
-		<div>
-			<h1>Todos</h1>
-			<div className="cuadro">
-				<input
-					type="text"
-					placeholder="enter do"
-					onInput={e => add(e)}
-				/>
-				<ul>{updatedtoDo};</ul>
-			</div>
-		</div>
-    );*/
+	function eliminar(e) {
+		toDo.splice(e, 1);
+		setToDo([...toDo]);
+	}
 
 	return (
 		<div>
@@ -64,7 +51,7 @@ export function Home() {
 					onChange={k => setTarea(k.target.value)}
 					value={tarea}
 				/>
-				<div onMouseOver={e => eliminar(e)}>{updatedtoDo}</div>
+				<div onClick={e => eliminar(e)}>{updatedtoDo}</div>
 			</div>
 		</div>
 	);
