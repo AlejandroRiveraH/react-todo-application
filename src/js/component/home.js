@@ -31,6 +31,7 @@ export function Home() {
 		if (e.keyCode === 13) {
 			setToDo([...toDo, e.target.value]);
 			e.target.placeholder = "Do enter";
+
 			console.log({ toDo });
 		}
 	}
@@ -42,7 +43,7 @@ export function Home() {
 
 	return (
 		<div>
-			<h1>Todos</h1>
+			<h1>Lista de elementos</h1>
 			<div className="cuadro">
 				<input
 					type="text"
